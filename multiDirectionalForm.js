@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Function to initialize the form by hiding all sections except the first one
+    function initializeForms() {
+      document.querySelectorAll('.dynamic-form').forEach(form => {
+        const sections = form.querySelectorAll('.form-section');
+        sections.forEach((section, index) => {
+          if (index !== 0) {
+            section.style.display = 'none';
+          }
+        });
+      });
+    }
+  
     // Function to show the next section based on the current selection
     function showNextSection(currentSectionId, nextSectionId, formId) {
       const currentSection = document.querySelector(`.form-section[data-section-id="${currentSectionId}"][data-form-id="${formId}"]`);
@@ -29,5 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
         showNextSection(currentSectionId, nextSectionId, formId);
       });
     });
+  
+    // Initialize forms on page load
+    initializeForms();
   });
   

@@ -1,1 +1,1 @@
-print("this is a test")
+console.log("Testing")
